@@ -1,4 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10327624&assignment_repo_type=AssignmentRepo)
+
 # FED Javascript 1 - Course Assignment
 
 This is a vanilla website that displays a list of items fetched from an API.
@@ -14,7 +15,9 @@ This project was bootstrapped with Vite.
 
 ## Report
 
-_ADD_YOUR_REPORT_HERE_
+Failed to deliver the CA by the deadline. Struggled a lot to understand different concepts within javascript. For example, topics I struggled with were understanding the API, how to fetch an API, async and await, JSON and other minor javascript concepts.
+
+Couldn't get the loader or error message with the try/catch method to work on the home page, but got it working on the details page.
 
 ## Getting Started
 
@@ -130,5 +133,5 @@ Make sure you go through this checklist before submitting your project to Moodle
 
 ## Authors
 
-- _YOURE_NAME_ (@_your_github_username_)
+- Sebastian Fjeller Schultz (@SebastianFScultz)
 - Monde Sineke (@S3ak)

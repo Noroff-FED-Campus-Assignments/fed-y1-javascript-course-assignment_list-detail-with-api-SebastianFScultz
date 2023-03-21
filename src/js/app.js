@@ -1,53 +1,78 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+const pokemonContainer = document.querySelector(".pokemon-container");
 
-// TODO: Get DOM elements from the DOM
+const pokemon_number = 150;
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
+const colors = {
+    fire: "#FDDFDF",
+    grass: "#DEFDE0",
+    electric: "#FCF7DE",
+    water: "#DEF3FD",
+    ground: "#f4e7da",
+    rock: "#d5d5d4",
+    fairy: "#fceaff",
+    poison: "#98d7a5",
+    bug: "#f8d5a3",
+    dragon: "#97b3e6",
+    psychic: "#eaeda1",
+    flying: "#F5F5F5",
+    fighting: "#E6E0D4",
+    normal: "#F5F5F5"
+};
 
-// TODO: Fetch and Render the list to the DOM
+const main_types = Object.keys(colors);
 
-// TODO: Create event listeners for the filters and the search
+const fetchPokemon = async () => {
+    for(let i = 1; i <= pokemon_number; i++) {
+        await getPokemon(i);
+    }
+}
 
-/**
- * TODO: Create an event listener to sort the list.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L91
- */
+const getPokemon = async id => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
+    try {
+        const res = await fetch(url);
+        const pokemon = await res.json();
+    
+        createPokemonCard(pokemon);
+        
+    } catch(error) {
+        detailContainer.innerHTML = displayError("An error occurred");
+    }
+    
+}
 
-// TODO: Fetch an array of objects from the API
+fetchPokemon();
 
-/*
-============================================
-Helper functions
-https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L154
-============================================
-*/
 
-/**
- * TODO: Create a function to filter the list of item.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L135
- * @param {item} item The object with properties from the fetched JSON data.
- * @param {searchTerm} searchTerm The string used to check if the object title contains it.
- */
+function createPokemonCard(pokemon) {
+    const pokemonEl = document.createElement("div");
+    pokemonEl.classList.add("pokemon");
 
-/**
- * TODO: Create a function to create a DOM element.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+    const poke_types = pokemon.types.map(el => el.type.name)
+    const type = main_types.find(type => poke_types.indexOf(type) > -1);
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const color = colors[type];
+
+    pokemonEl.style.backgroundColor = color;
+
+    const pokeInnerHTML = `
+    <a href="details.html?id=${pokemon.id}" class="card">
+        <div class="img-container">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt"pokemon picture" />
+        </div>
+        <div class="info">
+            <span class="number">#${pokemon.id.toString().padStart(3, "0")}</span>
+            <h3 class="name">${name}</h3>
+            <p class="type">Type: <span>${type}</span></p>
+        </div>
+    </a>`;
+
+    pokemonEl.innerHTML = pokeInnerHTML;
+
+    pokemonContainer.appendChild(pokemonEl);
+}
+
+function displayError(message) {
+    return `<div class="error">${message}</div>`;
+}

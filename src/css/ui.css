@@ -1,10 +1,111 @@
-/*!
- * UI
- * Place all your regular CSS here. If you don't know where to write your css, write it here.
- * @tutorial https://web.dev/learn/css/flexbox/
- * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/media-queries
- */
+.card {
+  color: black;
+}
 
-.c-card {
-  border-radius: --radius-1;
+.back-nav {
+  color: white;
+  background: black;
+  border: 5px solid white;
+  border-radius: 1rem;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 200px;
+
+  display: block;
+  justify-content: center;
+}
+
+.detail-container {
+  color: black;
+  background: white;
+  border: 5px solid black;
+  border-radius: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  
+  display: block;
+  justify-content: center;
+}
+
+.details-image {
+  height: 250px;
+}
+
+.pokemon-container {
+  color: black;
+  background: white;
+  border: 5px solid black;
+  border-radius: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+}
+
+.pokemon {
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 5px 5px rgba(100, 100, 100, 0.5);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  margin-top: 20px;
+  height: 120px;
+  width: 120px;
+}
+
+img {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.info {
+  margin-top: 20px;
+  
+}
+
+.number {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.name {
+  margin: 15px 0 7px;
+  
+}
+
+.error {
+  border: 1px solid darkred;
+  padding: 1rem;
+  color: darkred;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.loader {
+  border: 16px solid grey;
+  border-top: 16px solid red;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
