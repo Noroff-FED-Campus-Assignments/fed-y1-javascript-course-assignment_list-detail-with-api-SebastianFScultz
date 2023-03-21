@@ -4,35 +4,56 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
+    <meta name="description" content="Contact page for pokemons" />
     <meta
       name="keywords"
-      content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
+      content="HTML, CSS, JavaScript"
     />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="author" content="Sebastian Fjeller Schultz" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>Contact Us | _REPLACE_SITE_NAME</title>
+    <script defer type="module" src="src/js/contact.js"></script>
+    <title>Contact page</title>
   </head>
-  <body class="animate__animated animate__fadeIn">
-    <header class="l-header">
+  <body>
+    <header>
       <h1>Contact Us</h1>
     </header>
 
-    <main class="l-main">
-      <article role="doc-introduction">
-        <h2>Contact form</h2>
+    <main>
+      <a class="back-nav" href="/">Back to pokemons</a>
 
-        <p>_REPLACE_INTRODUCTION_</p>
-      </article>
+        <form class="form-container">
+            <div>
+              <label>
+                Name
+                <input name="name" id="name" />
+              </label>
+              <div class="form-error" id="nameError">Minimum length of 10 characters</div>
+            </div>
 
-      <section role="form-section">
-        <!-- TODO: Creat Form elements here -->
-      </section>
+            <div>
+              <label>
+                  Email
+                  <input name="email" id="email" />
+              </label>
+              <div class="form-error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div>
+              <label>
+                Address
+                <input name="address" id="address" />
+            </label>
+            <div class="form-error" id="addressError">Minimum length of 25 characters</div>
+            </div>
+
+            <button>Submit</button>
+            <div id="message"></div>
+        </form>
     </main>
 
-    <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
+    <footer>
+      <small>Created with ❤️ by Sebastian Fjeller Schultz</small>
     </footer>
   </body>
 </html>

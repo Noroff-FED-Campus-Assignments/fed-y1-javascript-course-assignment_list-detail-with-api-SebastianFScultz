@@ -1,15 +1,64 @@
-/*!
- * Forms
- * form classes use the c- prefix to indicate they are components used in layout.
- * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-2/forms
- */
+.contact-link {
+  font-size: 30px;
+  color: black;
+  background: white;
+  border: 5px solid black;
+  border-radius: 1rem;
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  
+  display: block;
+  justify-content: center;
+}
 
-.c-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: var(--spacing-1);
-  padding: var(--spacing-1);
-  background-color: var(--color-white);
-  border-radius: var(--radius-1);
-  box-shadow: var(--shadow-1);
+.form-container {
+  color: black;
+  background: white;
+  border: 5px solid black;
+  border-radius: 1rem;
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 20px;
+  
+  display: block;
+  justify-content: center;
+}
+
+input {
+  width: 100%;
+  margin-top: 2px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background: #d11d05;
+  border: none;
+  width: 200px;
+  padding: 1rem;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.message {
+  background: green;
+  padding: 1rem;
+  color: white;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.form-error {
+  display: none;
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 2px;
 }

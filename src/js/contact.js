@@ -1,30 +1,61 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L50
-============================================
-*/
+const form = document.querySelector(".form-container");
+const name = document.querySelector("#name");
+const firstNameError = document.querySelector("#nameError");
+const email = document.querySelector("#email");
+const emailError = document.querySelector("#emailError");
+const address = document.querySelector("#address");
+const addressError = document.querySelector("#addressError");
+const message = document.querySelector("#message");
+const button = document.querySelector("button");
 
-// TODO: Get DOM elements from the DOM
+function validateForm(event) {
+    event.preventDefault();
 
-// TODO: Create event listeners for the form
+    if (checkLength(name.value, 10) === true) {
+        nameError.style.display = "none";
+        
+    } else {
+        nameError.style.display = "block";
+    }
 
-/*
-============================================
-API calls
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L157
-============================================
-*/
+    if (validateEmail(email.value) === true) {
+        emailError.style.display = "none";
+    } else {
+        emailError.style.display = "block";
+    }
 
-// TODO: Set up a function to fetch data from the API
+    if (checkLength(address.value, 25) === true) {
+        addressError.style.display = "none";
+    } else {
+        addressError.style.display = "block";
+    }
+}
 
-/*
-============================================
-Helper functions
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L118
-============================================
-*/
+form.addEventListener("submit", validateForm);
 
-// TODO: Create a function to validate an input field
+function submitForm(event) {
+    event.preventDefault();
 
-// TODO: Create a function to create a DOM element
+    if (checkLength(name.value, 10) === true && validateEmail(email.value) === true && checkLength(address.value, 25) === true) {
+    message.innerHTML = '<div class="message">Success!</div>';
+   
+    form.reset();
+    }
+    
+}
+
+form.addEventListener("submit", submitForm);
+
+function checkLength(value, len) {
+    if (value.trim().length > len) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatches = regEx.test(email);
+    return patternMatches;
+}
