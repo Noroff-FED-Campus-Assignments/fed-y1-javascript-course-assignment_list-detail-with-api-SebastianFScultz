@@ -35,7 +35,7 @@ function createHtml(details) {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
     detailContainer.innerHTML = `<h2>${name}</h2>
-    <img class="details-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"></div>
+    <img class="details-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt"pokemon picture"></div>
     <p>#${pokemon.id.toString().padStart(3, "0")}</p>
     <p>Type: ${pokemon.type}</p>`;
     
